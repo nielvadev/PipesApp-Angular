@@ -1,0 +1,94 @@
+<div class="text-layout">
+    <h1>Pipes Básicos</h1>
+    <p>
+        Pipes incluídos en Angular - Usualmente en el Common Module.
+    </p>
+</div>
+<div class="grid">
+    <div class="col-12">
+        <label>
+            Personalice el texto:
+        </label>
+        <input 
+            pInputText 
+            type="text"
+            placeholder="Escriba su texto"
+            [(ngModel)]="basicos.input"
+        />
+    </div>
+    <div class="col-12 sm:col-6 md:col-4">
+        <p-card 
+            header="Pipe Uppercase"
+            [subheader]="'Input: ' + basicos.input">
+            <span class="txtOrange">Output:</span> {{ basicos.input | uppercase }}
+        </p-card>
+    </div>
+    <div class="col-12 sm:col-6 md:col-4">
+        <p-card 
+            header="Pipe Lowercase"
+            [subheader]="'Input: ' + basicos.input">
+            <span class="txtOrange">Output:</span> {{ basicos.input | lowercase }}
+        </p-card>
+    </div>
+    <div class="col-12 sm:col-6 md:col-4">
+        <p-card 
+            header="Pipe Titlecase"
+            [subheader]="'Input: ' + basicos.input">
+            <span class="txtOrange">Output:</span> {{ basicos.input | titlecase }}
+        </p-card>
+    </div>
+</div>
+
+
+<div class="text-layout">
+    <h1>Date | Fecha | Pipe</h1>
+    <p>
+        Pipe para mostrara las fechas.
+    </p>
+</div>
+
+<div class="grid">
+    <div class="p-col-6">
+        <p-card subheader="Comando">
+            <ul>
+                <li class="txtOrange"> fecha </li>
+                <li class="txtOrange"> fecha | date </li>
+                <li class="txtOrange"> fecha | date:'short' </li>
+                <li class="txtOrange"> fecha | date:'long' </li>
+                <li class="txtOrange"> fecha | date:'MMMM' </li>
+                <li class="txtOrange"> fecha | date:'MMMM dd, yyyy' </li>
+            </ul>
+
+            <hr>
+            <ul>
+                <li class="txtOrange"> fecha | date:'long':'GMT-6'</li>
+                <li class="txtOrange"> fecha | date:'long':'GMT-4'</li>
+                <li class="txtOrange"> fecha | date:'long':'':'fr'</li>
+            </ul>
+
+
+        </p-card>
+    </div>
+
+    <div class="p-col-6">
+        <p-card subheader="Respuesta">
+            <ul>
+                <li> {{ fecha }} </li>
+                <li> {{ fecha | date }} </li>
+                <li> {{ fecha | date:'short' }} </li>
+                <li> {{ fecha | date:'long' }} </li>
+                <li> {{ fecha | date:'MMMM' }} </li>
+                <li> {{ fecha | date:'MMMM dd, yyyy' }} </li>
+            </ul>
+
+            <hr>
+            <ul>
+                <li> {{ fecha | date:'long':'GMT-6' }} </li>
+                <li> {{ fecha | date:'long':'GMT-4' }} </li>
+                <li> {{ fecha | date:'long':'':'fr' }} </li>
+            </ul>
+        </p-card>
+    </div>
+    
+    
+</div>

@@ -1,0 +1,102 @@
+<div class="text-layout">
+    <h1>Pipes Personalizados</h1>
+    <p>
+        Pipes creados por nosotros.
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-12">
+        <label>
+            Personalice el texto:
+        </label>
+        <input 
+            pInputText 
+            type="text"
+            placeholder="Escriba su texto"
+            [(ngModel)]="texto"
+        />
+    </div>
+    <div class="col-12 sm:col-6 md:col-4">
+        <p-card 
+            header="Pipe Uppercase"
+            [subheader]="'Input: ' + texto">
+            <span class="txtOrange">Output:</span> {{ texto | mayusculas: indice }}
+            <br>
+            <button 
+                pButton 
+                type="button" 
+                icon="pi pi-refresh" 
+                class="p-button-rounded p-button-text m-2"
+                (click)="cambiar()">- Cambiar
+            </button>
+        </p-card>
+    </div>
+</div>
+
+<p-toolbar>
+    <div class="p-toolbar-group-start"></div>
+
+    <div class="p-toolbar-group-end">
+        <p-button 
+            icon="pi pi-sort"
+            label="Por Nombre"
+            (onClick)="cambiarOrden('nombre')"
+            class="mr-1">
+        </p-button>
+        <p-button 
+            icon="pi pi-sort"
+            label="Vuela"
+            (onClick)="cambiarOrden('vuela')"
+            class="mr-1">
+        </p-button>
+        <p-button 
+            icon="pi pi-sort"
+            label="Por Color"
+            (onClick)="cambiarOrden('color')"
+            class="mr-1">
+        </p-button>
+    </div>
+</p-toolbar>
+
+<div class="grid">
+    <div class="col mt-1">
+        <p-table [value]="heroes | ordenar:ordenarPor">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Vuela</th>
+                    <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{ heroe.nombre }}</td>
+                    <td>{{ heroe.vuela | vuela }}</td>
+                    <td>{{ heroe.color | color }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="col mt-1">
+        <p-table [value]="heroes | slice:0">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                    <th pSortableColumn="vuela">Nombre <p-sortIcon field="vuela"></p-sortIcon></th>
+                    <th pSortableColumn="color">Nombre <p-sortIcon field="color"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{ heroe.nombre }}</td>
+                    <td>{{ heroe.vuela | vuela }}</td>
+                    <td>{{ heroe.color | color }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
